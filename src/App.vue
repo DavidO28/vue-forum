@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import InfiniteScroll from './components/InfiniteScroll.vue';
 </script>
 
 <template>
@@ -15,6 +16,10 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+  <Suspense>
+    <InfiniteScroll />
+    <template #fallback>Loading users...</template>
+  </Suspense>
 </template>
 
 <style scoped>
