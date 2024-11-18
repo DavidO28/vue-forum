@@ -8,16 +8,23 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: {
-        title: 'Forum - Home'
-      }
+      meta: { title: 'Forum - Home' }
     },
     {
       path: '/about',
       name: 'about',
       component: () => import(/* webpackChunkName: "about page" */ '../views/AboutView.vue'),
-      meta: {toTop: true, smoothScroll:true, title: 'Forum - About'
+      meta: {
+        toTop: true,
+        smoothScroll:true,
+        title: 'Forum - About'
       }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import(/* webpackChunkName: "not found page" */ '../views/NotFoundView.vue'),
+      meta: { title: 'Forum - Not found' }
     }
   ],
 
