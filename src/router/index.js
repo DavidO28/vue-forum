@@ -7,13 +7,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Forum - Home'
+      }
     },
     {
       path: '/about',
       name: 'about',
       component: () => import(/* webpackChunkName: "about page" */ '../views/AboutView.vue'),
-      meta: {toTop: true, smoothScroll:true}
+      meta: {toTop: true, smoothScroll:true, title: 'Forum - About'
+      }
     }
   ],
 
@@ -23,6 +27,11 @@ const router = createRouter({
     if(to.meta.smoothScroll) scroll.behaviour = 'smooth'
     return scroll
   }
+})
+
+router.beforeEach((to, from, next)=>{
+  document.title = `${to.meta.title}`
+  next()
 })
 
 export default router

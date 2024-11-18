@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <button @click="openDialog">Open about dialog</button>
+    <button @click="openDialog">Open/Close about dialog</button>
       <MyModal v-if="dialog"/>
   </div>
 </template>
